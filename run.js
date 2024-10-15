@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const mql = require('@microlink/mql');
+const { urlsByType } = require('./urls');
 
 // Function to ensure the 'results' directory exists
 function ensureResultsFolder() {
@@ -45,11 +46,5 @@ async function fetchAllData(urlsByType) {
     await fetchOpenGraphData(type, urls, folderPath);
   }
 }
-
-// Example usage:
-const urlsByType = {
-  talk: ['https://youtu.be/0m_3FsQEiS4?si=S1Sgzv_reqZq_ECU'],
-  // blogs: ['https://example.com/blog1', 'https://example.com/blog2'],
-};
 
 fetchAllData(urlsByType).catch((error) => console.error('Error:', error));
